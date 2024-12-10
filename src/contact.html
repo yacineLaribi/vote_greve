@@ -13,35 +13,7 @@
 
     <title>Grève Oran</title>
 </head>
-<script>
-    // Define the options for each speciality
-    const yearOptions = {
-            medecine: ['Première année', 'Deuxième année', 'Troisième année', 'Quatrième année', 'Cinquième année', 'Sixième année', 'Septième année', 'Résident'],
-            pharmacie: ['Première année', 'Deuxième année', 'Troisième année', 'Quatrième année', 'Cinquième année', 'Sixième année'],
-            dentaire: ['Première année', 'Deuxième année', 'Troisième année', 'Quatrième année', 'Cinquième année', 'Sixième année']
-        };
-
-    function updateYearOptions() {
-        // Get the selected speciality
-        const speciality = document.getElementById('speciality').value;
-
-        // Get the year dropdown
-        const yearSelect = document.getElementById('year');
-
-        // Clear existing options
-        yearSelect.innerHTML = '';
-
-        // Add the new options
-        if (speciality in yearOptions) {
-            yearOptions[speciality].forEach(year => {
-                const option = document.createElement('option');
-                option.value = year;
-                option.textContent = year;
-                yearSelect.appendChild(option);
-            });
-        }
-    }
-</script>
+<script src="../script.js"></script>
 <body class="bg-bg text-second overflow-x-hidden select-none">
     <section class="hidden lg:block h-8 px-10 bg-main w-full text-white relative overflow-hidden">
             <div class="absolute  flex gap-2 justify-between w-full animate-scroll">
