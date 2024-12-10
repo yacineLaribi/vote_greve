@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link href="../dist/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@400..700&family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiny5&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="sticker.png" type="image/x-icon"> 
+
+    <title>Grève Oran</title>
+</head>
+<script>
+    // Define the options for each speciality
+    const yearOptions = {
+            medecine: ['Première année', 'Deuxième année', 'Troisième année', 'Quatrième année', 'Cinquième année', 'Sixième année', 'Septième année', 'Résident'],
+            pharmacie: ['Première année', 'Deuxième année', 'Troisième année', 'Quatrième année', 'Cinquième année', 'Sixième année'],
+            dentaire: ['Première année', 'Deuxième année', 'Troisième année', 'Quatrième année', 'Cinquième année', 'Sixième année']
+        };
+
+    function updateYearOptions() {
+        // Get the selected speciality
+        const speciality = document.getElementById('speciality').value;
+
+        // Get the year dropdown
+        const yearSelect = document.getElementById('year');
+
+        // Clear existing options
+        yearSelect.innerHTML = '';
+
+        // Add the new options
+        if (speciality in yearOptions) {
+            yearOptions[speciality].forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            });
+        }
+    }
+</script>
+<body class="bg-bg text-second overflow-x-hidden select-none">
+    <section class="hidden lg:block h-8 px-10 bg-main w-full text-white relative overflow-hidden">
+            <div class="absolute  flex gap-2 justify-between w-full animate-scroll">
+                <span>شارك في التصويت لتقرير مستقبل الإضراب الآن</span>
+                <span>Solidaire Solidaire : Medecine , Pharamcie , Dentaire</span>
+                <span>شارك في التصويت لتقرير مستقبل الإضراب الآن</span>
+                <span>لا لتمييع التخصصات الطبية</span>
+                <span>شارك في التصويت لتقرير مستقبل الإضراب الآن</span>
+
+
+            </div>
+          
+          <style>
+            @keyframes scroll {
+              0% {
+                transform: translateX(100%);
+              }
+              100% {
+                transform: translateX(-100%);
+              }
+            }
+            .animate-scroll {
+              animation: scroll 30s linear infinite;
+            }
+          </style>
+
+    </section>
+    <header class="px-2 lg:px-10 py-5 flex flex-row-reverse items-center justify-between">
+        <h1 class="text-4xl text-main text-center" style='font-family: "Aref Ruqaa", serif; font-weight: 400; font-style: normal;'> <a href="index.html"> اضراب الكرامة <br> كلية وهران</a></h1>
+        <!-- <button class="px-5 text-xl py-2 bg-black text-white rounded-3xl border border-2 border-black hover:bg-bg hover:text-black "><a href="contact.html">التصويت الآن</a></button> -->
+    </header>
+    <body>
+        <section class="w-full h-[80vh] flex items-start pt-20 justify-center">
+            <div class="relative w-[90%] lg:w-[70%] flex flex-col items-center justify-center gap-5">
+                <h1 class="text-6xl" style='font-family: "Aref Ruqaa", serif; font-weight: 700; font-style: normal;'>يرجى ملء النموذج أدناه لتأكيد تصويتك</h1>
+                <p class="text-main font-semibold">ملاحظة : تأكد من صحة المعلومات قبل إرسالها</p>
+                <form action="#" class="w-full">
+                    <div>
+                        <input type="text" name="fullname" id="fullname" placeholder="Nom et Prénom" style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full">
+                        <br><br>
+                    </div>
+                    <!-- <input type="date" name="birth_date" id="birth_date"  style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full"> -->
+                    <input type="text" name="birth_date" id="date-input" placeholder="Votre date de naissance : dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full">
+                    
+                    <br><br>
+                    <div class="w-full flex justify-between lg:gap-2 gap-5 lg:flex-row flex-col">
+                        <input type="number" name="bac_year" id="bac_year" placeholder="Année de BAC" min="2015" max="2024" style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full">
+                        <input type="number" name="inscription_num" id="inscription_num" placeholder="Votre Numero d'inscription" max="99999999" style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full lg:w-[70%]">
+                    </div>
+                    <br><br>
+
+                    <select id="speciality" name="speciality" onchange="updateYearOptions()" required style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full">
+                        <option value="" disabled selected>Selectionner votre spécialité </option>
+                        <option value="medecine">Medecine</option>
+                        <option value="pharmacie">Pharmacie</option>
+                        <option value="dentaire">Medecine Dentaire</option>
+                    </select>
+            
+                    <br><br>            
+                    <select id="year" name="year" required style="background-color: rgba(0, 135, 38, 0.08);" class="p-4 rounded-lg w-full">
+                        <option value="" disabled selected>Année d'études :</option>
+                    </select>
+                    <br> <br>
+                    <label for="response" class="font-semibold">Êtes-vous pour la continuation de la grève ? :</label><br><br>
+                    <input type="radio" id="yes" name="response" value="yes" required>
+                    <label for="yes">Oui</label><br>
+                    <input type="radio" id="no" name="response" value="no" required>
+                    <label for="no">Non</label>
+                    <br><br>
+
+                    <button type="submit" class="px-5 w-full text-lg py-2 bg-main text-white rounded-lg border border-2 border-main hover:bg-bg hover:text-main ">Valider</button>
+                </form>
+            </div>
+        </section>
+
+        
+    </body>
+    
+  </body>
+</html>
