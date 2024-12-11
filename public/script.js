@@ -10,7 +10,7 @@ function updateYearOptions() {
     const speciality = document.getElementById('speciality').value;
 
     // Get the year dropdown
-    const yearSelect = document.getElementById('year');
+    const yearSelect = document.getElementById('studyyear');
 
     // Clear existing options
     yearSelect.innerHTML = '';
