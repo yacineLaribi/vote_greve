@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Strike Poll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .hero {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .hero p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        .poll-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .option:hover {
+            background: #f0f0f0;
+        }
+        #results {
+            margin-top: 20px;
+            display: none;
+        }
+        .result-bar {
+            height: 20px;
+            background: #007bff;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>Medical Strike Poll</h1>
+    <p>Share your opinion about the upcoming medical strike in Algeria.</p>
+</div>
+
+<div class="poll-container">
+    <h2>Do you support the medical strike scheduled for next week?</h2>
+
+    <div id="poll-options">
+        <div class="option" onclick="vote('yes')">Yes</div>
+        <div class="option" onclick="vote('no')">No</div>
+    </div>
+
+    <div id="results">
+        <h2>Poll Results</h2>
+        <p>Yes: <span id="yes-percentage">0%</span></p>
+        <div class="result-bar" id="yes-bar" style="width: 0;"></div>
+        <p>No: <span id="no-percentage">0%</span></p>
+        <div class="result-bar" id="no-bar" style="width: 0;"></div>
+    </div>
+</div>
+
+<script>
+    let votes = { yes: 0, no: 0 };
+
+    function vote(option) {
+        if (option === 'yes') votes.yes++;
+        else if (option === 'no') votes.no++;
+
+        updateResults();
+    }
+
+    function updateResults() {
+        const totalVotes = votes.yes + votes.no;
+        const yesPercentage = totalVotes ? Math.round((votes.yes / totalVotes) * 100) : 0;
+        const noPercentage = totalVotes ? Math.round((votes.no / totalVotes) * 100) : 0;
+
+        document.getElementById('yes-percentage').innerText = yesPercentage + '%';
+        document.getElementById('no-percentage').innerText = noPercentage + '%';
+
+        document.getElementById('yes-bar').style.width = yesPercentage + '%';
+        document.getElementById('no-bar').style.width = noPercentage + '%';
+
+        document.getElementById('results').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
